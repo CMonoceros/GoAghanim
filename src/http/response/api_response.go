@@ -1,8 +1,8 @@
 package response
 
 import (
+	"cmonoceros.com/GoAghanim/src/base"
 	"github.com/gin-gonic/gin"
-	"jojotu.com/base"
 	"net/http"
 	"reflect"
 )

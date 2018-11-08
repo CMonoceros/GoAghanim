@@ -14,8 +14,6 @@ type MySql struct {
 	Args     map[string]string
 }
 
-var conf = Config{}
-
 func GetDefaultConfig() Config {
-	return conf
+	return CONF
 }

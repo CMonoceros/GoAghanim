@@ -1,8 +1,8 @@
 package middlewares
 
 import (
+	"cmonoceros.com/GoAghanim/src/base"
 	"github.com/gin-gonic/gin"
-	"jojotu.com/base"
 )
 
 func LogMiddleware(file base.LogFile) gin.HandlerFunc {

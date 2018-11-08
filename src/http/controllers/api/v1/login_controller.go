@@ -1,11 +1,11 @@
-package controllers
+package v1
 
 import (
+	"cmonoceros.com/GoAghanim/src/base"
+	"cmonoceros.com/GoAghanim/src/http/response"
+	"cmonoceros.com/GoAghanim/src/services/user/models"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
-	"jojotu.com/base"
-	"jojotu.com/http/response"
-	"jojotu.com/services/user/models"
 	"reflect"
 )
 

@@ -1,9 +1,9 @@
 package routes
 
 import (
+	"cmonoceros.com/GoAghanim/src/base"
+	"cmonoceros.com/GoAghanim/src/http/middlewares"
 	"github.com/gin-gonic/gin"
-	"jojotu.com/base"
-	"jojotu.com/http/middlewares"
 )
 
 func AdminPublicInit(router *gin.Engine) {
@@ -17,7 +17,4 @@ func AdminPublicInit(router *gin.Engine) {
 }
 
 func adminPublicInitPost(group *gin.RouterGroup) {
-	group.GET("/login", func(context *gin.Context) {
-		base.Log.Info("bbbb")
-	})
 }

@@ -1,10 +1,10 @@
 package routes
 
 import (
+	"cmonoceros.com/GoAghanim/src/base"
+	"cmonoceros.com/GoAghanim/src/http/controllers/api/v1"
+	"cmonoceros.com/GoAghanim/src/http/middlewares"
 	"github.com/gin-gonic/gin"
-	"jojotu.com/base"
-	"jojotu.com/http/middlewares"
-	"jojotu.com/services/user/controllers"
 )
 
 func ApiV1PublicInit(router *gin.Engine) {
@@ -17,5 +17,5 @@ func ApiV1PublicInit(router *gin.Engine) {
 }
 
 func apiV1PublicInitPost(group *gin.RouterGroup) {
-	group.POST("/login", controllers.UserLogin)
+	group.POST("/login", v1.UserLogin)
 }

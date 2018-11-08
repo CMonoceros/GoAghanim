@@ -1,8 +1,8 @@
 package models
 
 import (
+	"cmonoceros.com/GoAghanim/src/base"
 	"github.com/jinzhu/gorm"
-	"jojotu.com/base"
 )
 
 type User struct {

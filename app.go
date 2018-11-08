@@ -1,7 +1,7 @@
 package main
 
 import (
-	router "jojotu.com/http"
+	router "cmonoceros.com/GoAghanim/src/http"
 )
 
 func main() {

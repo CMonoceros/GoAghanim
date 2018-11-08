@@ -1,8 +1,8 @@
 package middlewares
 
 import (
+	user "cmonoceros.com/GoAghanim/src/services/user/models"
 	"github.com/gin-gonic/gin"
-	user "jojotu.com/services/user/models"
 	"net/http"
 )
 
