@@ -6,6 +6,7 @@ replace (
 	golang.org/x/net => github.com/golang/net v0.0.0-20181108082009-03003ca0c849
 	golang.org/x/sync => github.com/golang/sync v0.0.0-20181108010431-42b317875d0f
 	golang.org/x/sys => github.com/golang/sys v0.0.0-20181107165924-66b7b1311ac8
+	golang.org/x/text => github.com/golang/text v0.3.0
 	google.golang.org/appengine => github.com/golang/appengine v1.3.0
 )
 
