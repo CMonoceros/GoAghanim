@@ -4,8 +4,8 @@ replace (
 	cloud.google.com/go => github.com/GoogleCloudPlatform/google-cloud-go v0.32.0
 	golang.org/x/crypto => github.com/golang/crypto v0.0.0-20181106171534-e4dc69e5b2fd
 	golang.org/x/net => github.com/golang/net v0.0.0-20181108082009-03003ca0c849
+	golang.org/x/sync => github.com/golang/sync v0.0.0-20181108010431-42b317875d0f
 	golang.org/x/sys => github.com/golang/sys v0.0.0-20181107165924-66b7b1311ac8
-	golang.org/x/sysc => github.com/golang/sync v0.0.0-20181108010431-42b317875d0f
 	google.golang.org/appengine => github.com/golang/appengine v1.3.0
 )
 
