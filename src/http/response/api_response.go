@@ -17,6 +17,13 @@ func GetContext(c *gin.Context) *Context {
 	}
 }
 
+func (c *Context) PackOK() {
+	c.JSON(http.StatusOK, gin.H{
+		"errcode": 0,
+		"msg":     "ok",
+	})
+}
+
 func (c *Context) PackArray(data []interface{}) {
 	c.JSON(http.StatusOK, gin.H{
 		"errcode": 0,
