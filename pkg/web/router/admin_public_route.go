@@ -1,16 +1,16 @@
-package routes
+package router
 
 import (
-	"cmonoceros.com/GoAghanim/src/base"
-	"cmonoceros.com/GoAghanim/src/http/middlewares"
+	"cmonoceros.com/GoAghanim/pkg/lib"
+	"cmonoceros.com/GoAghanim/pkg/middleware"
 	"github.com/gin-gonic/gin"
 )
 
 func AdminPublicInit(router *gin.Engine) {
 	route := router.Group(
 		"",
-		middlewares.LogMiddleware(base.ADMIN),
-		middlewares.HostMiddleware("admin"),
+		middleware.LogMiddleware(lib.ADMIN),
+		middleware.HostMiddleware("admin"),
 	)
 
 	adminPublicInitPost(route)

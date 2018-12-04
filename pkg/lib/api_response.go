@@ -1,7 +1,6 @@
-package response
+package lib
 
 import (
-	"cmonoceros.com/GoAghanim/src/base"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"reflect"
@@ -58,7 +57,7 @@ func GetResource(data interface{}, provideResource func(interface{}) (res interf
 	} else if t == reflect.Struct {
 		return provideResource(data)
 	} else {
-		base.Log.Panic("Unexpected type:" + t.String())
+		Log.Panic("Unexpected type:" + t.String())
 		return nil
 	}
 }

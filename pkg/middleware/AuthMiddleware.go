@@ -1,7 +1,7 @@
-package middlewares
+package middleware
 
 import (
-	user "cmonoceros.com/GoAghanim/src/services/user/models"
+	"cmonoceros.com/GoAghanim/pkg/web/model"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -13,7 +13,7 @@ func AuthMiddleware() gin.HandlerFunc {
 			c.AbortWithStatus(http.StatusNotFound)
 			return
 		}
-		isAccess, account := user.Auth(token)
+		isAccess, account := model.Auth(token)
 		if !isAccess {
 			c.AbortWithStatus(http.StatusNotFound)
 			return

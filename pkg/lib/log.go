@@ -1,6 +1,7 @@
-package base
+package lib
 
 import (
+	"cmonoceros.com/GoAghanim/pkg"
 	"github.com/lestrrat-go/file-rotatelogs"
 	"github.com/pkg/errors"
 	"github.com/rifflock/lfshook"
@@ -64,7 +65,7 @@ func getLogWriter(logFileName LogFile) *rotatelogs.RotateLogs {
 	if err != nil {
 		Log.Errorf("config local file system logger error. %+v", errors.WithStack(err))
 	}
-	baseLogPath := path.Join(logPath, GetDefaultConfig().LogPath, logFileName)
+	baseLogPath := path.Join(logPath, pkg.GetDefaultConfig().LogPath, logFileName)
 	maxAge := time.Duration(math.MaxInt64)
 	rotationTime := time.Duration(time.Hour * 24)
 

@@ -1,5 +1,10 @@
 cloud.google.com/go v0.32.0 h1:DSt59WoyNcfAInilEpfvm2ugq8zvNyaHAm9MkzOwRQ4=
 cloud.google.com/go v0.32.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
+git.apache.org/thrift.git v0.0.0-20161221203622-b2a4d4ae21c7 h1:MNVd5E25KH42Py0Jg+3AiNOLnVr1edrUUHeQiAO86Lg=
+git.apache.org/thrift.git v0.0.0-20161221203622-b2a4d4ae21c7/go.mod h1:fPE2ZNJGynbRyZ4dJvy6G277gSllfV2HJqblrnkyeyg=
+git.apache.org/thrift.git v0.0.0-20181128031924-7f0fa6c21ec2 h1:OpkTn41mcCjKhC76qnwidyObUcL41G5MRBAMQpSIuCA=
+git.apache.org/thrift.git v0.0.0-20181128031924-7f0fa6c21ec2/go.mod h1:fPE2ZNJGynbRyZ4dJvy6G277gSllfV2HJqblrnkyeyg=
+github.com/GoogleCloudPlatform/google-cloud-go v0.32.0 h1:VmNuThmSOIw+l3KY0ZKs4ZGPcQIJC7cIsNrvnFERzqA=
 github.com/GoogleCloudPlatform/google-cloud-go v0.32.0/go.mod h1:piKfTDb3Lu/GCTS9S04WJOcDwPlGN91ymFXMrgLoqNo=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -22,11 +27,12 @@ github.com/golang/net v0.0.0-20181108082009-03003ca0c849/go.mod h1:98y8FxUyMjTdJ
 github.com/golang/protobuf v1.2.0 h1:P3YflyNX/ehuJFLhxviNdFxQPkGK5cDcApsge1SqnvM=
 github.com/golang/protobuf v1.2.0/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
 github.com/golang/sync v0.0.0-20181108010431-42b317875d0f/go.mod h1:YCHYtYb9c8Q7XgYVYjmJBPtFPKx5QvOcPxHZWjldabE=
-github.com/golang/sys v0.0.0-20181106135930-3a76605856fd/go.mod h1:5JyrLPvD/ZdaYkT7IqKhsP5xt7aLjA99KXRtk4EIYDk=
 github.com/golang/sys v0.0.0-20181107165924-66b7b1311ac8/go.mod h1:5JyrLPvD/ZdaYkT7IqKhsP5xt7aLjA99KXRtk4EIYDk=
 github.com/golang/text v0.3.0/go.mod h1:GUiq9pdJKRKKAZXiVgWFEvocYuREvC14NhI4OPgEjeE=
 github.com/google/go-cmp v0.2.0 h1:+dTQ8DZQJz0Mb/HjFlkptS1FeQ4cWSnN941F8aEG4SQ=
 github.com/google/go-cmp v0.2.0/go.mod h1:oXzfMopK8JAjlY9xF4vHSVASa0yLyX7SntLO5aqRK0M=
+github.com/google/tcpproxy v0.0.0-20180808230851-dfa16c61dad2 h1:AtvtonGEH/fZK0XPNNBdB6swgy7Iudfx88wzyIpwqJ8=
+github.com/google/tcpproxy v0.0.0-20180808230851-dfa16c61dad2/go.mod h1:DavVbd41y+b7ukKDmlnPR4nGYmkWXR6vHUkjQNiHPBs=
 github.com/jehiah/go-strftime v0.0.0-20171201141054-1d33003b3869 h1:IPJ3dvxmJ4uczJe5YQdrYB16oTJlGSC/OyZDqUk9xX4=
 github.com/jehiah/go-strftime v0.0.0-20171201141054-1d33003b3869/go.mod h1:cJ6Cj7dQo+O6GJNiMx+Pa94qKj+TG8ONdKHgMNIyyag=
 github.com/jinzhu/gorm v1.9.1 h1:lDSDtsCt5AGGSKTs8AHlSDbbgif4G4+CKJ8ETBDVHTA=

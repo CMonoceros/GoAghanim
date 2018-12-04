@@ -1,7 +1,7 @@
-package models
+package model
 
 import (
-	"cmonoceros.com/GoAghanim/src/base"
+	"cmonoceros.com/GoAghanim/pkg/lib"
 	"github.com/jinzhu/gorm"
 )
 
@@ -19,7 +19,7 @@ func (User) TableName() string {
 }
 
 func Auth(token string) (isAccess bool, user User) {
-	db := base.GetSqlDb()
+	db := lib.GetSqlDb()
 	defer db.Close()
 	isAccess = !db.First(&user, "api_token = ?", token).
 		RecordNotFound()
