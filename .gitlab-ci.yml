@@ -1,4 +1,6 @@
 stages:
+- prepare-test
+- prepare
 - build
 - test
 - deploy
@@ -6,10 +8,22 @@ cache:
   paths:
     - bin/
 
+aghanim-prepare-test:
+  stage: prepare-test
+  script:
+  - mkdir bin
+  - go version
+  allow_failure: true
+
+aghanim-prepare:
+  stage: prepare
+  script:
+  - export PATH=$PATH:/usr/local/go/bin
+  allow_failure: false
+  when: on_failure
+
 aghanim-build:
   stage: build
-  before_script:
-  - mkdir bin
   script:
   - go mod tidy
   - go build cmd/web/gin.go
@@ -22,11 +36,12 @@ aghanim-build:
   - shell
   allow_failure: false
   retry: 2
+  when: on_success
 
 aghanim-deploy:
   stage: deploy
   script:
-  - ./bin/gin
+  - nohub ./bin/gin &
   only:
   - master
   tags:
