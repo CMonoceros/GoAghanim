@@ -7,13 +7,13 @@ stages:
 cache:
   paths:
   - bin/
-before_script:
-- export PATH=$PATH:/usr/local/go/bin
-- rm -rf bin/
-- mkdir bin
 
 aghanim-build:
   stage: build
+  before_script:
+  - export PATH=$PATH:/usr/local/go/bin
+  - rm -rf bin/
+  - mkdir bin
   script:
   - go mod tidy
   - go build cmd/web/gin.go
