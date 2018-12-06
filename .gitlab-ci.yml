@@ -1,12 +1,27 @@
-aghanim:
+stages:
+- build
+- test
+- deploy
+
+aghanim-build:
+  stage: build
   script:
   - go mod tidy
   - go build cmd/web/gin.go
   only:
   - master
   tags:
-  - aghanim-go
+  - go
+  - shell
   allow_failure: false
-  after_script:
+aghanim-deploy:
+  stage: deploy
+  script:
   - mv ./gin ../bin/
   - ./gin
+  only:
+  - master
+  tags:
+  - go
+  - shell
+  allow_failure: false
