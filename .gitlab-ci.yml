@@ -1,0 +1,12 @@
+aghanim:
+  script:
+  - go mod tidy
+  - go build cmd/web/gin.go
+  only:
+  - master
+  tags:
+  - aghanim-go
+  allow_failure: false
+  after_script:
+  - mv ./gin ../bin/
+  - ./gin
