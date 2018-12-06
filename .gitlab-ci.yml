@@ -17,7 +17,6 @@ aghanim-build:
   script:
   - go mod tidy
   - go build cmd/web/gin.go
-  after_script:
   - mv gin bin
   only:
   - master
