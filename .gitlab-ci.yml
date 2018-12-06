@@ -10,6 +10,9 @@ cache:
 before_script:
 - export PATH=$PATH:/usr/local/go/bin
 
+after_script:
+- rm -rf bin/
+
 aghanim-build:
   stage: build
   before_script:
