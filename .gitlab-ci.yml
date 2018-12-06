@@ -7,30 +7,9 @@ stages:
 cache:
   paths:
   - bin/
-
-aghanim-prepare-test:
-  stage: prepare-test
-  script:
-  - mkdir bin
-  - go version
-  only:
-  - master
-  tags:
-  - go
-  - shell
-  allow_failure: true
-
-aghanim-prepare:
-  stage: prepare
-  script:
-  - export PATH=$PATH:/usr/local/go/bin
-  allow_failure: false
-  only:
-  - master
-  tags:
-  - go
-  - shell
-  when: on_failure
+before_script:
+- mkdir bin
+- export PATH=$PATH:/usr/local/go/bin
 
 aghanim-build:
   stage: build
@@ -51,7 +30,7 @@ aghanim-build:
 aghanim-deploy:
   stage: deploy
   script:
-  - nohub ./bin/gin &
+  - nohup ./bin/gin &
   only:
   - master
   tags:
