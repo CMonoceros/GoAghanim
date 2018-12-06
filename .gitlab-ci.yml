@@ -6,13 +6,18 @@ stages:
 - deploy
 cache:
   paths:
-    - bin/
+  - bin/
 
 aghanim-prepare-test:
   stage: prepare-test
   script:
   - mkdir bin
   - go version
+  only:
+  - master
+  tags:
+  - go
+  - shell
   allow_failure: true
 
 aghanim-prepare:
@@ -20,6 +25,11 @@ aghanim-prepare:
   script:
   - export PATH=$PATH:/usr/local/go/bin
   allow_failure: false
+  only:
+  - master
+  tags:
+  - go
+  - shell
   when: on_failure
 
 aghanim-build:
