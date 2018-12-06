@@ -8,11 +8,12 @@ cache:
   paths:
   - bin/
 before_script:
-- mkdir bin
 - export PATH=$PATH:/usr/local/go/bin
 
 aghanim-build:
   stage: build
+  before_script:
+  - mkdir bin
   script:
   - go mod tidy
   - go build cmd/web/gin.go
