@@ -31,7 +31,7 @@ aghanim-build:
 aghanim-deploy:
   stage: deploy
   script:
-  - nohup ./bin/gin &
+  - ./bin/gin &
   only:
   - master
   tags:
