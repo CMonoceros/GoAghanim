@@ -1,20 +1,16 @@
 package lib
 
 import (
-	"cmonoceros.com/GoAghanim/pkg"
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
-func GetSqlDb() *gorm.DB {
-	mysqlConf := pkg.GetDefaultConfig().MySql
-	arg := mysqlConf.User + ":" + mysqlConf.Password + "@/" + mysqlConf.DBName + "?"
-	for k, v := range mysqlConf.Args {
-		arg += k + "=" + v + "&"
-	}
+// GetSQLDb 获取mysql连接
+func GetSQLDb(env Env) *gorm.DB {
+	arg := env.Get("MYSQL_USER") + ":" +
+		env.Get("MYSQL_PASSWORD") + "@/" +
+		env.Get("MYSQL_DB_NAME") + "?" +
+		env.Get("MYSQL_DB_ARGS")
 	db, err := gorm.Open("mysql", arg)
-	if err != nil {
-		Log.Panic(err)
-	}
+	CheckAndThrowError(err, LibraryCode)
 	return db
 }

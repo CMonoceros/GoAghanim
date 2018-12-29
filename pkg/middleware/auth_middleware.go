@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+// AuthMiddleware 验证合法用户中间件
 func AuthMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		token, err := c.GetQuery("api_token")
@@ -13,10 +14,9 @@ func AuthMiddleware() gin.HandlerFunc {
 			c.AbortWithStatus(http.StatusNotFound)
 			return
 		}
-		isAccess, account := model.Auth(token)
+		isAccess, account := model.UserAuth(token)
 		if !isAccess {
 			c.AbortWithStatus(http.StatusNotFound)
-			return
 		} else {
 			c.Set("user", account)
 			c.Next()

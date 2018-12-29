@@ -1,16 +1,16 @@
 package middleware
 
 import (
-	"cmonoceros.com/GoAghanim/pkg"
+	"cmonoceros.com/GoAghanim/pkg/web"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"regexp"
 )
 
+// HostMiddleware 验证host中间件
 func HostMiddleware(domain string) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		conf := pkg.GetDefaultConfig()
-		reg := regexp.MustCompile(`\Q` + domain + `.` + conf.AppUrl + `\E.*`)
+		reg := regexp.MustCompile(`\Q` + domain + `.` + web.ENV.Get("APP_URL") + `\E.*`)
 		if !reg.MatchString(c.Request.Host) {
 			c.AbortWithStatus(http.StatusNotFound)
 			return

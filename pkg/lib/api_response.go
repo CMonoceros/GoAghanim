@@ -1,21 +1,25 @@
 package lib
 
 import (
+	"errors"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"reflect"
 )
 
+// Context 默认Context
 type Context struct {
 	*gin.Context
 }
 
+// GetContext 获取默认Context
 func GetContext(c *gin.Context) *Context {
 	return &Context{
 		c,
 	}
 }
 
+// PackOK 正常返回
 func (c *Context) PackOK() {
 	c.JSON(http.StatusOK, gin.H{
 		"errcode": 0,
@@ -23,6 +27,7 @@ func (c *Context) PackOK() {
 	})
 }
 
+// PackArray 正常返回数组
 func (c *Context) PackArray(data []interface{}) {
 	c.JSON(http.StatusOK, gin.H{
 		"errcode": 0,
@@ -31,6 +36,7 @@ func (c *Context) PackArray(data []interface{}) {
 	})
 }
 
+// PackMap 正常返回Map
 func (c *Context) PackMap(data interface{}) {
 	c.JSON(http.StatusOK, gin.H{
 		"errcode": 0,
@@ -39,6 +45,7 @@ func (c *Context) PackMap(data interface{}) {
 	})
 }
 
+// PackError 错误返回
 func (c *Context) PackError(code int, msg string) {
 	c.JSON(http.StatusOK, gin.H{
 		"errcode": code,
@@ -46,6 +53,7 @@ func (c *Context) PackError(code int, msg string) {
 	})
 }
 
+// GetResource 获取返回的资源文件
 func GetResource(data interface{}, provideResource func(interface{}) (res interface{})) (res interface{}) {
 	t := reflect.ValueOf(data).Kind()
 	if t == reflect.Slice {
@@ -57,7 +65,7 @@ func GetResource(data interface{}, provideResource func(interface{}) (res interf
 	} else if t == reflect.Struct {
 		return provideResource(data)
 	} else {
-		Log.Panic("Unexpected type:" + t.String())
+		CheckAndThrowError(errors.New("Unexpected type:"+t.String()), LibraryCode)
 		return nil
 	}
 }

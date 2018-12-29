@@ -1,15 +1,16 @@
 package router
 
 import (
-	"cmonoceros.com/GoAghanim/pkg/lib"
 	"cmonoceros.com/GoAghanim/pkg/middleware"
+	"cmonoceros.com/GoAghanim/pkg/web"
 	"github.com/gin-gonic/gin"
 )
 
-func ApiV1Init(router *gin.Engine) {
+// APIV1Init 接口v1私有路由初始化
+func APIV1Init(router *gin.Engine) {
 	route := router.Group(
 		"/api/v1",
-		middleware.LogMiddleware(lib.API),
+		middleware.LogMiddleware(web.LogAPIConfig),
 		middleware.HostMiddleware("api"),
 		middleware.AuthMiddleware())
 

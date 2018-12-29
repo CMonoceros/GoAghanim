@@ -1,21 +1,29 @@
 package router
 
 import (
-	"cmonoceros.com/GoAghanim/pkg"
+	"cmonoceros.com/GoAghanim/pkg/lib"
+	"cmonoceros.com/GoAghanim/pkg/web"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
+// Init 路由初始化
 func Init() {
 	router := gin.New()
-	conf := pkg.GetDefaultConfig()
 
-	ApiV1PublicInit(router)
+	APIV1PublicInit(router)
 	AdminPublicInit(router)
-	ApiV1Init(router)
+	APIV1Init(router)
+
 	router.NoRoute(func(c *gin.Context) {
 		c.AbortWithStatus(http.StatusNotFound)
 	})
+	router.Use(func(c *gin.Context) {
+		lib.InitLogger(web.LogRequestConfig)
+		lib.Logger.Info("-----------Start Request--------------------")
+		lib.Logger.Info(c.Request)
+	})
 
-	router.Run(":" + conf.Port)
+	err := router.Run(":" + web.ENV.Get("PORT"))
+	lib.CheckAndThrowError(err, lib.DefaultCode)
 }

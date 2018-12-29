@@ -1,0 +1,23 @@
+{
+  "WarnUnmatchedDirective": true,
+  "Deadline": "5m",
+  "vendor": true,
+  "EnableGC": true,
+  "DisableAll": true,
+  "Enable": [
+    "deadcode",
+    "golint",
+    "gofmt",
+    "vet",
+    "errcheck",
+    "gocyclo"
+  ],
+  "Severity": {
+    "deadcode": "error",
+    "golint": "error",
+    "gocyclo": "error",
+    "gofmt": "error",
+    "errcheck": "error"
+  },
+  "Cyclo": 10
+}
