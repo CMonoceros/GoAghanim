@@ -2,9 +2,10 @@ package lib
 
 import (
 	"errors"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"reflect"
+
+	"github.com/gin-gonic/gin"
 )
 
 // Context 默认Context
@@ -54,10 +55,10 @@ func (c *Context) PackError(code int, msg string) {
 }
 
 // GetResource 获取返回的资源文件
-func GetResource(data interface{}, provideResource func(interface{}) (res interface{})) (res interface{}) {
+func GetResource(data interface{}, provideResource func(interface{}) interface{}) (res interface{}) {
 	t := reflect.ValueOf(data).Kind()
 	if t == reflect.Slice {
-		var res []interface{}
+		var res = make([]interface{}, 15)
 		for _, v := range data.([]interface{}) {
 			res = append(res, provideResource(v))
 		}

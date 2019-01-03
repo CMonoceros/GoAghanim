@@ -7,12 +7,12 @@ import (
 
 // Error 自定义错误
 type Error struct {
-	Code  int
-	Error error
+	Code   int
+	Detail error
 }
 
-func (e Error) String() string {
-	return fmt.Sprintf("Code: %v  =>  Error: %v", e.Code, e.Error)
+func (e Error) Error() string {
+	return fmt.Sprintf("Code: %v  =>  Error: %v", e.Code, e.Detail)
 }
 
 // DefaultCode 默认错误码
@@ -21,18 +21,18 @@ const DefaultCode = 45000
 // LibraryCode 依赖库错误码
 const LibraryCode = 55000
 
-// CheckAndThrowError 检查并扔出错误
+// CheckAndThrowError 检查并扔出异常
 func CheckAndThrowError(sysError error, code int) {
 	if sysError != nil {
 		ThrowError(sysError, code)
 	}
 }
 
-// ThrowError 扔出错误
+// ThrowError 扔出异常
 func ThrowError(sysError error, code int) {
 	err := Error{
-		Code:  code,
-		Error: sysError,
+		Code:   code,
+		Detail: sysError,
 	}
 	Logger.Error(err)
 	panic(err)
@@ -46,7 +46,7 @@ func CheckAndReportError(err error, callback func()) {
 	}
 }
 
-// CatchErrorFunc 捕获错误，如为自定义错误类型，则恢复
+// CatchErrorFunc 捕获异常，如为自定义错误类型，则恢复
 func CatchErrorFunc() func() {
 	return func() {
 		err := recover()

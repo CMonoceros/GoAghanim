@@ -44,6 +44,7 @@ func configLocalFileSystemLogger(config LogFileConfig) {
 		},
 		&logrus.TextFormatter{DisableColors: true},
 	)
+	Logger.ReplaceHooks(make(logrus.LevelHooks))
 	Logger.AddHook(lfHook)
 	Logger.SetReportCaller(true)
 }
